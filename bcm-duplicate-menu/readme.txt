@@ -1,9 +1,9 @@
-=== Plugin Name ===
+=== BCM Duplicate Menu ===
 Contributors: bcmdev
 Donate link: http://bcmdev.nl/donate.html
 Tags: duplicate, menu, ClassicPress
 Requires at least: 4.0
-Tested up to: 6.3
+Tested up to: 6.7
 Requires PHP: 5.4
 Stable tag: 1.1.2
 License: GPLv2
