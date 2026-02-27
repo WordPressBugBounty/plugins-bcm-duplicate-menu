@@ -1,11 +1,11 @@
-=== BCM Duplicate Menu ===
+=== Plugin Name ===
 Contributors: bcmdev
 Donate link: http://bcmdev.nl/donate.html
-Tags: duplicate, menu, ClassicPress
+Tags: duplicate, menu
 Requires at least: 4.0
-Tested up to: 6.7
-Requires PHP: 5.4
-Stable tag: 1.1.2
+Tested up to: 6.9
+Requires PHP: 7.0
+Stable tag: 1.1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ Yes, the duplicated menu will remain.
 1. The Duplicate-button can be found next to the Save-button.
 
 == Changelog ==
+
+= 1.1.3 (2026-02-27) =
+* Bugfixes
 
 = 1.1.2 (2022-10-07) =
 * Bugfix: In some cases, the menu order was not kept after duplicating the menu.

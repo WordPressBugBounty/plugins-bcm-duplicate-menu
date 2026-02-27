@@ -4,23 +4,11 @@
 	Plugin URL:		http://bcmdev.nl/
 	Description:	The easiest way to duplicate your menu
 	Author:			BCM.dev
-	Version:		1.1.2
+	Version:		1.1.3
 	Author URI:		http://bcmdev.nl/
 	License:		GPLv2
 	Text Domain:	bcm-duplicate-menu
 */
-
-//Translate Plugin Title
-__('BCM Duplicate Menu', 'bcm-duplicate-menu');
-
-//Translate Plugin Description
-__('The easiest way to duplicate your menu', 'bcm-duplicate-menu');
-
-//Translate Plugin Author
-__('BCM.dev', 'bcm-duplicate-menu');
-
-//Translate Plugin URL
-__('https://wordpress.org/plugins/bcm-duplicate-menu/', 'bcm-duplicate-menu');
 
 if ( ! class_exists( 'bcmDuplicateMenu' ) ) {
 
@@ -30,14 +18,26 @@ if ( ! class_exists( 'bcmDuplicateMenu' ) ) {
         function __construct() {
             
             // Add support for translations
-            load_plugin_textdomain('bcm-duplicate-menu', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
+            add_action('init', array($this, 'load_text_domain'));
 
             // Add the Duplicate Menu button to the nav-menus admin-page
             add_action('admin_footer', array($this, 'duplicate_menu_btn'), 10);
             
             // Redirect the nav-menus to the required plugin pages
             add_action('admin_footer', array($this, 'start_duplicate'), 5);
-            
+        }
+
+        function load_text_domain() {
+            load_plugin_textdomain('bcm-duplicate-menu', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
+
+            //Translate Plugin Title
+            __('BCM Duplicate Menu', 'bcm-duplicate-menu');
+
+            //Translate Plugin Description
+            __('The easiest way to duplicate your menu', 'bcm-duplicate-menu');
+
+            //Translate Plugin Author
+            __('BCM.dev', 'bcm-duplicate-menu');            
         }
 
         // Add the Duplicate Menu button to the nav-menus admin-page
@@ -57,7 +57,7 @@ if ( ! class_exists( 'bcmDuplicateMenu' ) ) {
                 ?>
                 <script type="text/javascript">
                     var update_menu_form = jQuery('#update-nav-menu');
-                    update_menu_form.find('.publishing-action').append('<?php echo addslashes_gpc($return); ?>');
+                    update_menu_form.find('#nav-menu-footer .publishing-action').append('<?php echo addslashes_gpc($return); ?>');
                     jQuery('.DuplicateMenuButtonClick').click(function() {
                         jQuery('.DuplicateMenuButtonSpinner').show();
                     });
